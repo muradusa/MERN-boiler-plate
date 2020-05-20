@@ -31,11 +31,11 @@ class RegisterLogin extends Component {
             this.setState({ errors: [] })
                 this.props.dispatch(loginUser(dataToSubmit))
                 .then(response => {
-                    if(response.pauload.loginSuccess) {
+                    if(response.payload.loginSuccess) {
                         this.props.history.push('/')
                     } else {
                         this.setState({
-                            errors: this.state.errors.concast(
+                            errors: this.state.errors.concat(
                                 "Failed to login, please check your email and password")
                         })
                     }
