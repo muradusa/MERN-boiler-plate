@@ -30,7 +30,21 @@ class RegisterLogin extends Component {
         if(this.isFormvalid(this.state)) {
             this.setState({ errors: [] })
                 this.props.dispatch(loginUser(dataToSubmit))
-                .then(response => {})
+                .then(response => {
+                    if(response.pauload.loginSuccess) {
+                        this.props.history.push('/')
+                    } else {
+                        this.setState({
+                            errors: this.state.errors.concast(
+                                "Failed to login, please check your email and password")
+                        })
+                    }
+
+                })
+        } else {
+            this.setState({
+                errors: this.state.errors.concat("Form is not valid")
+            })
         }
     }
 
@@ -79,7 +93,7 @@ class RegisterLogin extends Component {
             </div>
           </div>
 
-            {this.state.errors.length > 0 && (
+            { this.state.errors.length > 0 && (
                 <div>
                     {this.displayErrors(this.state.errors)}
                 </div>
