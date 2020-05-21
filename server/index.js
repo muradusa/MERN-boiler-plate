@@ -39,11 +39,12 @@ app.get("/api/users/auth", auth, (req, res) => {
 app.post("/api/users/register", (req, res) => {
   const user = new User(req.body);
 
-  user.save((err, userData) => {
+  user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
   });
   return res.status(200).json({
     success: true,
+    userData: doc
   });
 });
 

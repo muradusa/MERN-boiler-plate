@@ -9,11 +9,11 @@ class RegisterLogin extends Component {
     state = {
         email: "",
         password: "",
-        errors: []
+        errors: [],
     };
 
     displayErrors = errors => {
-        errors.map((errors, i) => <p key={i}>{errors}</p> )
+        errors.map((error, i) => <p key={i}>{error}</p> )
     }
 
     handleChange = event => {
@@ -67,7 +67,7 @@ class RegisterLogin extends Component {
                 type="email"
                 className="validate"
               />
-              <label htmlFor="email">Email</label>
+              <label className="active" htmlFor="email">Email</label>
               <span
                 className="helper-text"
                 data-error="Type correct email"
@@ -85,7 +85,7 @@ class RegisterLogin extends Component {
                 type="password"
                 className="validate"
               />
-              <label htmlFor="email">Password</label>
+              <label className="active" htmlFor="email">Password</label>
               <span
                 className="helper-text"
                 data-error="wrong"
