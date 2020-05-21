@@ -13,7 +13,7 @@ class RegisterLogin extends Component {
     };
 
     displayErrors = errors => {
-        errors.map((error, i) => <p key={i}>{error}</p> )
+        errors.map((errors, i) => <p key={i}>{errors}</p> )
     }
 
     handleChange = event => {
@@ -134,7 +134,7 @@ class RegisterLogin extends Component {
 
 function mapStateToProps(state) {
     return {
-        user:this.user
+        user:state.user
 }}
 
 export default connect(mapStateToProps)(RegisterLogin)
